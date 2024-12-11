@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5e6d3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            color: #4a4a4a;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            transition: all 0.5s ease;
+        }
+
+        .heart {
+            color: #ff4757;
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            color: #ff4757;
+            margin-bottom: 20px;
+        }
+
+        .memories {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .memory-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        button {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>Our Anniversary Surprise!</h1>
+        <div id="initial-message">
+            <p>Click the button to reveal our love story...</p>
+            <button onclick="revealMemories()">Reveal Memories</button>
+        </div>
+        <div id="memories" class="memories">
+            <img id="memory1" class="memory-image" src="c:\Users\Ban\Downloads\A1709F2E-C092-416E-9DD4-CD738B4F4B5A.jpg" alt="Memory 1">
+            <img id="memory2" class="memory-image" src="c:\Users\Ban\Downloads\296B76F3-56D3-4EE2-A812-3A92F59CD4F8.jpg" alt="Memory 2">
+            <p id="love-message"></p>
+            <button onclick="resetSurprise()">Restart</button>
+        </div>
+    </div>
+
+    <script>
+        function revealMemories() {
+            document.getElementById('initial-message').style.display = 'none';
+            document.getElementById('memories').style.display = 'block';
+            
+            // Reveal images with delay
+            setTimeout(() => {
+                document.getElementById('memory1').style.opacity = '1';
+            }, 500);
+            
+            setTimeout(() => {
+                document.getElementById('memory2').style.opacity = '1';
+            }, 1500);
+            
+            // Add a custom love message
+            setTimeout(() => {
+                document.getElementById('love-message').innerHTML = 
+                    "Every moment with you is a treasure. Happy Anniversary, my love! ❤️";
+            }, 2500);
+        }
+
+        function resetSurprise() {
+            document.getElementById('initial-message').style.display = 'block';
+            document.getElementById('memories').style.display = 'none';
+            document.getElementById('memory1').style.opacity = '0';
+            document.getElementById('memory2').style.opacity = '0';
+            document.getElementById('love-message').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
